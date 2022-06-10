@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  namespace :public, path: "" do
+  get '/' => 'homes#top'
+  end
+
 # 顧客用
 # devise_for :customers
 # URL /customers/sign_in ...

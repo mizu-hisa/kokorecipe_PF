@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get '/' => 'homes#top'
   end
 
+
+
+
+
 # 顧客用
 # devise_for :customers
 # URL /customers/sign_in ...

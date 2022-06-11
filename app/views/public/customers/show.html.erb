@@ -1,10 +1,12 @@
-
 <% @recipes.each do |recipe| %>
 <div>
-  <p><%= image_tag recipe.get_image %></p>
+  <p><%= image_tag recipe.get_image(100,100) %></p>
   <p>投稿ユーザー画像：<%= image_tag recipe.customer.get_profile_image(100,100) %></p>
   <p>ショップ名：<%= recipe.title %></p>
   <p>説明：<%= recipe.detail %></p>
   <p>ユーザーネーム：<%= recipe.customer.user_name %></p>
 </div>
 <% end %>
+  <% if @customer == current_customer %>
+    <p><%= link_to "プロフィール編集", edit_customer_path(@customer) %></p>
+  <% end %>

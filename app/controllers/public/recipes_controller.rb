@@ -43,3 +43,4 @@ class Public::RecipesController < ApplicationController
     params.require(:recipe).permit(:title, :detail, :image)
   end
 end
+

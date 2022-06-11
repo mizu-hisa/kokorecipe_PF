@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   scope module: :public do
     get '/' => 'homes#top'
     resources :recipes, only: [:new, :create, :index, :show, :edit, :update, :destroy]
-    resources :customers, only: [:show, :edit]
+    resources :customers, only: [:show, :edit, :update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
 
-
-  namespace :public, path: "" do
-  get '/' => 'homes#top'
+  scope module: :public do
+    get '/' => 'homes#top'
+    resources :recipes, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
+
 
 # 顧客用
 # devise_for :customers

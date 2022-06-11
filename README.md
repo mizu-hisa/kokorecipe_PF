@@ -1,24 +1,41 @@
-# README
+# kokorecipe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  ## サイト概要
+  料理レシピを簡単に検索、投稿できるサイトです。
+  - 料理画像
+  - 料理のメニュー名(料理の詳細レシピ表示ページに遷移)
+  - ユーザーネーム(投稿者のページに遷移)
+  - ゲストログイン機能を利用することで閲覧時の手順を簡略化。
 
-Things you may want to cover:
+  ## サイトテーマ
+  料理レシピが更新順に表示されるSNSサイトです。
 
-* Ruby version
+  ### テーマを選んだ理由
+  一人暮らしが長く料理も作る機会が多かったことから、色々な人の料理レシピを簡単に見る事ができるサイトを作りたいと思いました。
+  人との会食を控えることが多い中、自炊する人が増えたのではないかと思います。
+  春から一人暮らしを始めた人などは慣れてきたら少し手の込んだ料理に挑戦したいと思うかもしれません。
+  主婦(主夫)の方は少ない時間の中でメニューを考えることが億劫になっているかもしれません。
+  投稿している人は自身の料理に関しての意見をいただけると改善したり、次の新しいレシピ考案の参考となると考えます。
+  しかしレシピを調べる為や投稿する事に対して会員登録することはユーザの負担になると考え、登録手順を可能な限り簡略することで利用者は増えると考えられます。
 
-* System dependencies
+  ### ターゲットユーザ
+  - 料理初心者・主婦・主夫・一人暮らしの方
 
-* Configuration
+  ### 主な利用シーン
+  - 短時間でメニューを決めたい時、
+  - 使いたい食材でレシピ検索したい時、
+  - 自分で考えた料理をまとめて記録しておきたい時、
+  - 自分で考えた料理を発信したい時
 
-* Database creation
+  ## 設計書
+  - WBS: https://docs.google.com/spreadsheets/d/1vCn2HA5DOiIFYKa_7BD1OTUMTOmtWWoXIymfQ7nTf94/edit#gid=1066245728
 
-* Database initialization
+  ## 開発環境
+  - OS：Linux(CentOS)
+  - 言語：HTML,CSS,JavaScript,Ruby,SQL
+  - フレームワーク：Ruby on Rails
+  - JSライブラリ：jQuery
+  - IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  ## 使用素材
+  - 使用検討中です。

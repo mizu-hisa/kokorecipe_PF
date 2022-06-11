@@ -1,0 +1,9 @@
+<% @recipes.each do |recipe| %>
+  <div>
+    <p><%= recipe.title %></p>
+       <%= image_tag recipe.get_image %>
+    <p><%= link_to 'レシピ詳細', recipe_path(recipe.id) %></p>
+    <p>ユーザーネーム：<%= recipe.customer.user_name %></p>
+    <p>投稿ユーザー画像：<%= image_tag 'no_image.png' %></p>
+  </div>
+<% end %>

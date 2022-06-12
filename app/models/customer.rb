@@ -5,6 +5,8 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :recipes, dependent: :destroy
+  has_many :recipe_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_one_attached :profile_image
 
   def get_profile_image(width, height)

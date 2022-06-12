@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     resources :recipes, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :customers, only: [:show, :edit, :update]
+    resources :recipe_comments, only: [:create, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

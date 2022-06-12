@@ -1,13 +1,13 @@
-  <% if @recipe.favorited_by?(current_customer) %>
+  <% if recipe.favorited_by?(current_customer) %>
     <p>
-      <%= link_to recipe_favorites_path(@post_image), method: :delete do %>
-        ♥<%= @post_image.favorites.count %> いいね
+      <%= link_to recipe_favorites_path(recipe), method: :delete do %>
+        ♥<%= recipe.favorites.count %> いいね
       <% end %>
     </p>
     <% else %>
     <p>
-      <%= link_to post_image_favorites_path(@post_image), method: :post do %>
-        ♡<%= @post_image.favorites.count %> いいね
+      <%= link_to recipe_favorites_path(recipe), method: :post do %>
+        ♡<%= recipe.favorites.count %> いいね
       <% end %>
     </p>
   <% end %>

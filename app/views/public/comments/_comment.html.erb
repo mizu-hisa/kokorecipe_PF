@@ -10,7 +10,7 @@
   <% end %>
 </div>
 <div>
-  <%= form_with( model: [recipe, recipe_comment], url: recipe_comments_path(id: recipe.id), method: :post) do |f| %>
+  <%= form_with( model: [recipe, recipe_comment], url: recipe_comments_path(recipe_id: recipe.id), method: :post) do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
   <% end %>

@@ -3,11 +3,11 @@
   <%= image_tag @recipe.get_image(100,100) %>
   <p>タイトル：<%= @recipe.title %></p>
   <p>レシピ詳細：<%= @recipe.detail %></p>
-  <p>投稿ユーザー画像：<%= image_tag @recipe.customer.get_profile_image(100,100) %>
+  <p>ユーザー画像：<%= image_tag @recipe.customer.get_profile_image(50,50) %>
   <p>ユーザーネーム：<%= @recipe.customer.customer_name %></p>
   <p>投稿日：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
   <%= link_to "編集", edit_recipe_path(@recipe.id) %>
   <%= link_to "削除", recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-</div>
-<i class="fas fa-comment-alt-lines"></i>
-<%= render 'public/recipe_comments/comment', recipe: @recipe, recipe_comment: @recipe_comment %>
+  <%= render 'public/comments/comment', recipe: @recipe, recipe_comment: @recipe_comment %>
+  <%= render 'public/favorites/iine', recipe: @recipe %>
+  </div>

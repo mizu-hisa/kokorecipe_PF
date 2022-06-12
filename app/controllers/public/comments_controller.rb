@@ -1,7 +1,6 @@
-class Public::RecipeCommentsController < ApplicationController
-
+class Public::CommentsController < ApplicationController
   def create
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
     @comment = current_customer.recipe_comments.new(recipe_comment_params)
     @comment.recipe_id = @recipe.id
     @comment.save
@@ -21,6 +20,4 @@ class Public::RecipeCommentsController < ApplicationController
   def recipe_comment_params
     params.require(:recipe_comment).permit(:comment)
   end
-
-
 end

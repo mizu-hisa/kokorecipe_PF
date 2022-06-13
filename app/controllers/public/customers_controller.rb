@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
 
   def show
+    @recipe = Recipe.find(params[:id])
     @customer = Customer.find(current_customer.id)
     @recipes = @customer.recipes
   end
@@ -14,7 +15,7 @@ class Public::CustomersController < ApplicationController
     @customer.update(customer_params)
     redirect_to customer_path(current_customer.id)
   end
-  
+
   def withdrawal
     @customer = Customerer.find(params[:id])
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる

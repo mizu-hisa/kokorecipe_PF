@@ -1,13 +1,44 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      <div>
 
-<div>
-  <%= image_tag @recipe.get_image(100,100) %>
-  <p>タイトル：<%= @recipe.title %></p>
-  <p>レシピ詳細：<%= @recipe.detail %></p>
-  <p>ユーザー画像：<%= image_tag @recipe.customer.get_profile_image(50,50) %>
-  <p>ユーザーネーム：<%= @recipe.customer.customer_name %></p>
-  <p>投稿日：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
-  <%= link_to "編集", edit_recipe_path(@recipe.id) %>
-  <%= link_to "削除", recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-  <%= render 'public/comments/comment', recipe: @recipe, recipe_comment: @recipe_comment %>
-  <%= render 'public/favorites/iine', recipe: @recipe %>
+        <div class="row mt-5">
+          <div class="col">
+            <%= image_tag @recipe.get_image(400,300) %>
+          </div>
+          <div class="col mt-5 text-left">
+              <p>タイトル：<%= @recipe.title %></p>
+              <p>レシピ詳細：<%= @recipe.detail %></p>
+          </div>
+        </div>
+
+            <div class="row text-center">
+              <div class="col-6 mt-5">
+                <%= render 'public/comments/comment', recipe: @recipe, recipe_comment: @recipe_comment %>
+              </div>
+              <div class="col-3 mt-5">
+                <%= render 'public/favorites/iine', recipe: @recipe %>
+              </div>
+              <div class="col-3 mt-5 text-left">
+                <p>follow</p>
+                <p>follower</p>
+              </div>
+            </div>
+
+                <div class="row mt-5">
+                  <div class="col text-right">
+                    <p>Image：<%= image_tag @recipe.customer.get_profile_image(50,50) %>
+                  </div>
+                  <div class="col mt-3 text-left">
+                    <p>Name：<%= @recipe.customer.customer_name %></p>
+                  </div>
+                </div>
+
+            <p>投稿日：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
+              <%= link_to "編集", edit_recipe_path(@recipe.id) %>
+              <%= link_to "削除", recipe_path(@recipe.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        </div>
+      </div>
+    </div>
   </div>

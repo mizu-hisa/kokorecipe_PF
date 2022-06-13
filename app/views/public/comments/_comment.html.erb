@@ -1,17 +1,21 @@
-<div>
-  <p>コメント件数：<%= recipe.recipe_comments.count %></p>
-  <% recipe.recipe_comments.each do |recipe_comment| %>
-    <p><%= image_tag recipe_comment.customer.get_profile_image(100,100) %></p>
-    <%= recipe_comment.customer.customer_name %>
-    <%= recipe_comment.created_at.strftime('%Y/%m/%d') %><%= recipe_comment.comment %>
-    <% if recipe_comment.customer == current_customer %>
-      <%= link_to "削除", recipe_comment_path(recipe_comment.id, recipe_id: recipe_comment.recipe), method: :delete %>
+<div class="row">
+  <div class="col">
+    <p>コメント件数：<%= recipe.recipe_comments.count %>　　</p>
+      <% recipe.recipe_comments.each do |recipe_comment| %>
+        <%= recipe_comment.customer.customer_name %>
+        <%= recipe_comment.created_at.strftime('%Y/%m/%d') %>　　<br>
+        <%= recipe_comment.comment %>　　<br>
+        <% if recipe_comment.customer == current_customer %>
+          <%= link_to "削除", recipe_comment_path(recipe_comment.id, recipe_id: recipe_comment.recipe), method: :delete %>
+        <% end %>
     <% end %>
-  <% end %>
-</div>
-<div>
-  <%= form_with( model: [recipe, recipe_comment], url: recipe_comments_path(recipe_id: recipe.id), method: :post) do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
+  </div>
+
+      <div class="col">
+        <%= form_with( model: [recipe, recipe_comment], url: recipe_comments_path(recipe_id: recipe.id), method: :post) do |f| %>
+          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %><br>
+          <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+
 </div>

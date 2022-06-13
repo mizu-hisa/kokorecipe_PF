@@ -33,7 +33,7 @@ class Public::RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipes_path
+    redirect_to root_path
   end
 
 

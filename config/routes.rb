@@ -17,10 +17,15 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
+
     resources :recipes, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+    # 退会確認画面
+    get '/customers/is_deleted' => 'customers#is_deleted'
+    # 論理削除用のルーティング
+    patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     resources :customers, only: [:show, :edit, :update]
 
   end

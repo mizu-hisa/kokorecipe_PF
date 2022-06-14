@@ -8,7 +8,7 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.customer = current_customer
     @recipe.save
-    redirect_to recipe_path(@recipe.id)
+    redirect_to customer_path(@recipe.id)
   end
 
   def edit

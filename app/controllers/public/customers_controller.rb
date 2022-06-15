@@ -1,7 +1,6 @@
 class Public::CustomersController < ApplicationController
 
   def show
-    @recipe = Recipe.find(params[:id])
     @customer = Customer.find(current_customer.id)
     @recipes = @customer.recipes
   end

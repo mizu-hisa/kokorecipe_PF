@@ -19,3 +19,4 @@ class Recipe < ApplicationRecord
   end
 
 end
+

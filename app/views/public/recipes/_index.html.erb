@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <% recipes.each do |recipe| %>
+          <div>
+              <div class="row">
+                <div class="col">
+                  <p><%= image_tag recipe.get_image(200,150) %></p>
+                </div>
+                <div class="col mt-4">
+                  <p class="text-center mt-4 text-secondary"><strong><%= recipe.title %></strong></p>
+                  <p class="text-center"><%= link_to 'レシピ詳細', recipe_path(recipe.id) %></p>
+                </div>
+                <div class="col">
+                  <p class="text-center pt-3"><%= image_tag recipe.customer.get_profile_image(100,100) %></p>
+                  <p class="text-center text-secondary">Name：<%= recipe.customer.customer_name %></p>
+                </div>
+              </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>

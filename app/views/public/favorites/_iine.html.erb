@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col">
+    <% if customer_signed_in? %>
+      <% if recipe.favorited_by?(current_customer) %>
+        <p>
+          <%= link_to recipe_favorites_path(recipe), method: :delete do %>
+            ♥<%= recipe.favorites.count %>
+            <p>いいね</p>
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to recipe_favorites_path(recipe), method: :post do %>
+            ♡<%= recipe.favorites.count %>
+            <p>いいね</p>
+          <% end %>
+        </p>
+      <% end %>
+      <% else %>
+        ♡<%= recipe.favorites.count %>
+        <p>いいね</p>
+    <%end%>
+  </div>
+</div>

@@ -5,7 +5,7 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-requir 'uglifier'
+require 'uglifier'
 
 module Kokorecipe
   class Application < Rails::Application

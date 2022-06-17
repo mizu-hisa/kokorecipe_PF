@@ -32,4 +32,4 @@ production:
   collation: utf8mb4_general_ci
   host: <%= ENV['rds-mysql-server.cvuxsw6farnz.us-east-1.rds.amazonaws.com'] %>
   username: <%= ENV['root'] %>
-  password: <%= ENV['2112130m'] %>
+  password: <%= ENV['2112130Mm'] %>

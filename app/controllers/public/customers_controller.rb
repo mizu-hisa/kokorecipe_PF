@@ -12,11 +12,12 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(current_customer.id)
     @customer.update(customer_params)
-    redirect_to customer_path(current_customer.id)
+    redirect_to customers_my_page_path(current_customer)
   end
 
   def withdrawal
-    @customer = Customerer.find(params[:id])
+    
+    @customer = Customer.find(params[:id])
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(is_deleted: true)
     reset_session

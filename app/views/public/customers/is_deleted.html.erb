@@ -7,8 +7,8 @@
         これまでの投稿機能などが利用できなくなります。<br>
         退会する場合は、「退会する」をクリックしてください。
       </p>
-      <%= link_to "退会しない", customer_path(current_customer), class: 'btn btn-primary mt-3', style: "width: 10%" %>
-      <%= link_to "退会する", root_path, class: 'btn btn-danger ml-5 mt-3', style: "width: 10%", data: { confirm: "本当に退会しますか？"} %>
+      <%= link_to "退会しない", customers_my_page_path(current_customer), class: 'btn btn-primary mt-3', style: "width: 10%" %>
+      <%= link_to "退会する", withdrawal_path(current_customer), method: :patch, class: 'btn btn-danger ml-5 mt-3', style: "width: 10%", data: { confirm: "本当に退会しますか？"} %>
       </center>
     </div>
   </div>

@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     resources :customers, only: [:edit, :update]
     get '/customers/my_page' => 'customers#show'
+    
 
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'

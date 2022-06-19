@@ -1,67 +1,80 @@
-  <header class="shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning p-5">
+<header class="shadow-sm">
+  <nav class="navbar bg-warning p-5">
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="container">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
+    <div class="container offset-6">
             <% if customer_signed_in? %>
-              <li class="nav-item">
-                <%= link_to root_path, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-house"></i> Top
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to customer_path(current_customer.id), class: 'nav-link text-secondary' do %>
+
+            <div class="row">
+              <div class="col">
+                <%= link_to customer_path(current_customer.id), class: 'nav-link text-secondary text-center' do %>
                   <i class="fas fa-user"></i>My_page
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+
+              <div class="col mt-3">
+                <%= link_to root_path, class: 'nav-link text-secondary' do %>
+                  <i class="fas fa-home"></i> Top
+                <% end %>
+              </div>
+
+              <div class="col mt-3">
                 <%= link_to new_recipe_path, class: 'nav-link text-secondary' do %>
                   <i class="fas fa-book"></i> 投稿
                 <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary' do %>
+              </div>
+
+              <div class="col">
+                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary text-center' do %>
                   <i class="fas fa-user"></i> Log_Out
                 <% end %>
-              </li>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mt-4 ml-5 pl-5">
+                <%= render "public/searches/search" %>
+              </div>
+            </div>
+
 
             <% elsif admin_signed_in? %>
-              <li class="nav-item">
+
+            <div class="row">
+              <div class="col mt-3">
                 <%= link_to root_path, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-house"></i> Top
+                  <i class="fas fa-home"></i> Top
                 <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-user"></i> Admin_Log_Out
+              </div>
+
+              <div class="col">
+                <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary text-center' do %>
+                  <i class="fas fa-user"></i> Log_Out
                 <% end %>
-              </li>
+              </div>
+            </div>
 
             <% else %>
-              <li class="nav-item">
+
+              <div class="col mt-2">
                 <%= link_to root_path, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-house"></i> Top
+                  <i class="fas fa-home"></i> Top
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+
+              <div class="col">
                 <%= link_to new_customer_registration_path, class: 'nav-link text-secondary' do %>
                   <i class="fas fa-user-plus"></i> Sign_up
                 <% end %>
-              </li>
-              <li class="nav-item">
+              </div>
+
+              <div class="col">
                 <%= link_to new_customer_session_path, class: 'nav-link text-secondary' do %>
                   <i class="fas fa-sign-in-alt"></i> Log_in
                 <% end %>
-              </li>
+              </div>
+
 
             <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>

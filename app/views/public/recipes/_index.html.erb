@@ -16,7 +16,9 @@
                 </div>
                 <div class="col mt-4">
                   <p class="text-center mt-4 text-secondary"><strong><%= recipe.title %></strong></p>
-                  <p class="text-center"><%= link_to 'レシピ詳細', recipe_path(recipe.id) %></p>
+                  <% if customer_signed_in? %>
+                    <p class="text-center"><%= link_to 'レシピ詳細', recipe_path(recipe.id) %></p>
+                  <% end %>
                 </div>
                 <div class="col">
                   <p class="text-center pt-3"><%= image_tag recipe.customer.get_profile_image(100,100) %></p>

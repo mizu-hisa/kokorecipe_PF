@@ -4,6 +4,7 @@
       <div class="row mt-5">
         <div class="col">
           <%= image_tag @recipe.get_image(400,300) %>
+          <p>自己紹介</p>
         </div>
           <div class="col mt-5 text-left">
             <p>タイトル：<%= @recipe.title %></p>
@@ -19,14 +20,14 @@
             </div>
           </div>
 
-            <div class="row text-center offset-2">
-              <div class="col-5 mt-5">
-                <%= render 'public/comments/comment', recipe: @recipe, recipe_comment: @recipe_comment %>
+            <div class="row offset-1">
+              <div class="col-5 mt-5 ml-">
+                <%= render 'public/comments/comment', recipe: @recipe, recipe_comment: @recipe_comment, customer: @customer %>
               </div>
-              <div class="col-2 mt-5"><br>
+              <div class="col-3 mt-5"><br>
                 <%= render 'public/favorites/iine', recipe: @recipe %>
               </div>
-              <div class="col-2 mt-5 text-left"><br>
+              <div class="col-4 mt-5 text-left"><br>
                 <%= render "public/relationships/follow", customer: @customer %>
               </div>
             </div>

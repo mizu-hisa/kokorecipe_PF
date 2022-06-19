@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get 'relationships/followings'
     get 'relationships/followers'
   end
+
   # 顧客用
   # devise_for :customers
   # URL /customers/sign_in ...
@@ -18,11 +19,15 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  
+
 
   scope module: :public do
     root to: 'homes#top'
     get "search" => "searches#search"
+    devise_scope :customer do
+      post 'customers/guest_sign_in', to: 'sessions#guest_sign_in'
+    end
+
 
     resources :recipes, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
@@ -32,7 +37,10 @@ Rails.application.routes.draw do
     get '/customers/is_deleted' => 'customers#is_deleted'
     # 論理削除用のルーティング
     patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-    resources :customers, only: [:show, :edit, :update]
+    get '/customers/my_page' => 'customers#show'
+    resources :customers, only: [:edit, :update]
+
+
 
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'

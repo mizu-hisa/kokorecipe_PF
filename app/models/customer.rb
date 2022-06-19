@@ -18,6 +18,13 @@ class Customer < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
+  def self.guest
+    find_or_create_by!(customer_name: 'guestuser' ,email: 'guest@example.com') do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+      customer.customer_name = 'guestuser'
+    end
+  end
+
   # フォローしたときの処理
   def follow(customer_id)
     relationships.create(followed_id: customer_id, follower_id: id)

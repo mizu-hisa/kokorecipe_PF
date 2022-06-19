@@ -1,12 +1,14 @@
 <header class="shadow-sm">
   <nav class="navbar bg-warning p-5">
 
+
+
     <div class="container offset-6">
-            <% if customer_signed_in? %>
+            <% if customer_signed_in? && current_customer.email != 'guest@example.com' %>
 
             <div class="row">
               <div class="col">
-                <%= link_to customers_my_page_path(current_customer), class: 'nav-link text-secondary text-center' do %>
+                <%= link_to customers_my_page_path, class: 'nav-link text-secondary text-center' do %>
                   <i class="fas fa-user"></i>My_page
                 <% end %>
               </div>
@@ -36,6 +38,22 @@
               </div>
             </div>
 
+            <% elsif customer_signed_in? && current_customer.email == 'guest@example.com' %>
+              <div class="col">
+                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary' do %>
+                  <i class="fas fa-user"></i>Log_Out
+                <% end %>
+              </div>
+              <div class="col">
+                <%= link_to new_customer_registration_path, class: 'nav-link text-secondary' do %>
+                  <i class="fas fa-user-plus"></i>Sign_up
+                <% end %>
+              </div>
+              <div class="col">
+                <%= link_to new_customer_session_path, class: 'nav-link text-secondary' do %>
+                  <i class="fas fa-sign-in-alt"></i>Log_in
+                <% end %>
+              </div>
 
             <% elsif admin_signed_in? %>
 

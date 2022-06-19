@@ -32,7 +32,8 @@ Rails.application.routes.draw do
     get '/customers/is_deleted' => 'customers#is_deleted'
     # 論理削除用のルーティング
     patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-    resources :customers, only: [:show, :edit, :update]
+    resources :customers, only: [:edit, :update]
+    get '/customers/my_page' => 'customers#show'
 
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'

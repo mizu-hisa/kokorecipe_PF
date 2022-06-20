@@ -1,65 +1,63 @@
-<header class="shadow-sm">
-  <nav class="navbar bg-warning p-5">
+ <nav class="navbar bg-warning p-5">
+  <div class="container">
+    <div class=""><%= image_tag 'logo.png', :size => '170x150' %></div>
 
+      <div class="row">
 
+          <div class="col mt-3">
+            <%= link_to root_path, class: 'nav-link text-secondary' do %>
+              <i class="fas fa-home"></i>Top
+            <% end %>
+          </div>
 
-    <div class="container offset-6">
-            <% if customer_signed_in? && current_customer.email != 'guest@example.com' %>
+        <% if customer_signed_in? && current_customer.email != 'guest@example.com' %>
+          <div class="col">
+            <%= link_to customers_my_page_path, class: 'nav-link text-secondary text-center' do %>
+              <i class="fas fa-user"></i>My_page
+          </div>
+        <% end %>
 
-            <div class="row">
-              <div class="col">
-                <%= link_to customers_my_page_path, class: 'nav-link text-secondary text-center' do %>
-                  <i class="fas fa-user"></i>My_page
-                <% end %>
-              </div>
+          <div class="col mt-3">
+            <%= link_to new_recipe_path, class: 'nav-link text-secondary' do %>
+              <i class="fas fa-book"></i>投稿
+            <% end %>
+          </div>
 
-              <div class="col mt-3">
-                <%= link_to root_path, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-home"></i> Top
-                <% end %>
-              </div>
+          <div class="col">
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary text-center' do %>
+              <i class="fas fa-user"></i>Log_Out
+            <% end %>
+          </div>
+      </div>
 
-              <div class="col mt-3">
-                <%= link_to new_recipe_path, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-book"></i> 投稿
-                <% end %>
-              </div>
+      <div class="row mt-5">
+        <div class="col">
+          <%= render "public/searches/search" %>
+        </div>
+      </div>
 
-              <div class="col">
-                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary text-center' do %>
-                  <i class="fas fa-user"></i> Log_Out
-                <% end %>
-              </div>
+          <% elsif customer_signed_in? && current_customer.email == 'guest@example.com' %>
+            <div class="col">
+              <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary text-center' do %>
+                <i class="fas fa-user"></i>Log_Out
+              <% end %>
+            </div>
+            <div class="col">
+              <%= link_to new_customer_registration_path, class: 'nav-link text-secondary text-center' do %>
+                <i class="fas fa-user-plus"></i>Sign_up
+              <% end %>
+            </div>
+            <div class="col">
+              <%= link_to new_customer_session_path, class: 'nav-link text-secondary text-center' do %>
+                <i class="fas fa-sign-in-alt"></i>Log_in
+              <% end %>
             </div>
 
-            <div class="row">
-              <div class="col mt-4 ml-5 pl-5">
-                <%= render "public/searches/search" %>
-              </div>
-            </div>
-
-            <% elsif customer_signed_in? && current_customer.email == 'guest@example.com' %>
-              <div class="col">
-                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-user"></i>Log_Out
-                <% end %>
-              </div>
-              <div class="col">
-                <%= link_to new_customer_registration_path, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-user-plus"></i>Sign_up
-                <% end %>
-              </div>
-              <div class="col">
-                <%= link_to new_customer_session_path, class: 'nav-link text-secondary' do %>
-                  <i class="fas fa-sign-in-alt"></i>Log_in
-                <% end %>
-              </div>
-
-            <% elsif admin_signed_in? %>
+          <% elsif admin_signed_in? %>
 
             <div class="row">
               <div class="col mt-3">
-                <%= link_to root_path, class: 'nav-link text-secondary' do %>
+                <%= link_to root_path, class: 'nav-link text-secondary text-center' do %>
                   <i class="fas fa-home"></i> Top
                 <% end %>
               </div>
@@ -73,26 +71,26 @@
 
             <% else %>
 
-              <div class="col mt-2">
-                <%= link_to root_path, class: 'nav-link text-secondary' do %>
+            <div class="row">
+              <div class="col mt-3">
+                <%= link_to root_path, class: 'nav-link text-secondary text-center' do %>
                   <i class="fas fa-home"></i> Top
                 <% end %>
               </div>
 
               <div class="col">
-                <%= link_to new_customer_registration_path, class: 'nav-link text-secondary' do %>
+                <%= link_to new_customer_registration_path, class: 'nav-link text-secondary text-center' do %>
                   <i class="fas fa-user-plus"></i> Sign_up
                 <% end %>
               </div>
 
               <div class="col">
-                <%= link_to new_customer_session_path, class: 'nav-link text-secondary' do %>
+                <%= link_to new_customer_session_path, class: 'nav-link text-secondary text-center' do %>
                   <i class="fas fa-sign-in-alt"></i> Log_in
                 <% end %>
               </div>
+            </div>
 
-
-            <% end %>
+          <% end %>
     </div>
   </nav>
-</header>

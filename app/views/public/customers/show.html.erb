@@ -5,9 +5,10 @@
   <div class="col-2 text-left mt-3">
     <% if @customer == current_customer %>
       <p>Name：<%= @customer.customer_name %></p>
-      <p><%= link_to "プロフィール編集", edit_customer_path(@customer) %></p>
+      <p><%= link_to "プロフィール編集", customers_my_page_edit_path %></p>
     <% end %>
   </div>
+
   <div class="col offset-1 mt-4">
     <p><%= link_to "フォロー一覧", followings_path %></p>
     <p><%= link_to "フォロワー一覧", followers_path %></p>

@@ -6,6 +6,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       ## Database authenticatable
 
       t.string :customer_name
+      t.string :introduction
       t.string :image
 
       t.string :email,              null: false, default: ""

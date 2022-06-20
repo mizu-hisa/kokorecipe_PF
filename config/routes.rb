@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get "search" => "searches#search"
-    get 'search_result' => ''
     devise_scope :customer do
       post 'customers/guest_sign_in', to: 'sessions#guest_sign_in'
     end
@@ -39,9 +38,8 @@ Rails.application.routes.draw do
     # 論理削除用のルーティング
     patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     get '/customers/my_page' => 'customers#show'
-    resources :customers, only: [:edit, :update]
-
-
+    get '/customers/my_page/edit' => 'customers#edit'
+    resources :customers, only: [:update]
 
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'

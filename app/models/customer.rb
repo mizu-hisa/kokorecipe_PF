@@ -24,6 +24,21 @@ class Customer < ApplicationRecord
       customer.customer_name = 'guestuser'
     end
   end
+  
+# 検索方法分岐
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @customer = Customer.where("customer_name LIKE?", "#{word}")
+    elsif search == "forward_match"
+      @customer = Customer.where("customer_name LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @customer = Customer.where("customer_namee LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @customer = Customer.where("customer_name LIKE?","%#{word}%")
+    else
+      @customer = Customer.all
+    end
+  end
 
   # フォローしたときの処理
   def follow(customer_id)

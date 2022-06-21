@@ -23,13 +23,13 @@
 
             <div class="row">
               <div class="col-5 mt-5 ml-">
-                <%= render 'public/comments/comment', recipe: @recipe, recipe_comment: @recipe_comment, customer: @customer %>
+                <%= render 'comment', recipe: @recipe, recipe_comment: @recipe_comment, customer: @customer %>
               </div>
               <div class="col-3 mt-5"><br>
-                <%= render 'public/favorites/iine', recipe: @recipe %>
+                <%= render 'iine', recipe: @recipe %>
               </div>
               <div class="col-4 mt-5 text-left"><br>
-                <%= render "public/relationships/follow", customer: @customer %>
+                <%= render "follow", customer: @customer %>
               </div>
             </div>
       </div>

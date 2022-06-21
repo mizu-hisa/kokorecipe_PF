@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :customers, only:[:index, :show, :edit, :update]
+    # get 'customers/index'
+    # get 'customers/show'
+    # get 'customers/edit'
+  end
   namespace :public do
     get 'relationships/followings'
     get 'relationships/followers'

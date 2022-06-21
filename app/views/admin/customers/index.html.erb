@@ -1,0 +1,35 @@
+<h1 class="mt-3 text-center">ユーザ一覧</h1>
+<table class='table mt-5 mb-5'>
+  <thead>
+    <tr class="text-center">
+      <th width="15%">会員ID</th>
+      <th width="30%">氏名</th>
+      <th width="15%">ステータス</th>
+      <th width="20%"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr class="text-center">
+        <td><br><%= customer.id %></td>
+        <td><br><%= link_to admin_customer_path(customer) do%>
+                  <%= customer.customer_name %></td>
+                <% end %>
+        <td><% if customer.is_deleted == true %>
+            <p class="text-secondary"><strong>退会</strong></p>
+            <%else%>
+      　     <p class="text-success"><strong>有効</strong></p>
+            <%end%>
+        </td>
+        <td><br><%= link_to "編集", edit_admin_customer_path(customer.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+      <div class="row">
+        <div class="offset-5">
+          <div class="text-center"><%= paginate @customers %></div>
+        </div>
+      </div>

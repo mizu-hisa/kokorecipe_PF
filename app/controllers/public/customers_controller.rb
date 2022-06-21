@@ -12,11 +12,11 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(current_customer.id)
     @customer.update(customer_params)
-    redirect_to customers_my_page_path(current_customer)
+    redirect_to customers_my_page_path
   end
 
   def withdrawal
-    
+
     @customer = Customer.find(params[:id])
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(is_deleted: true)
@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:customer_name, :profile_image)
+    params.require(:customer).permit(:customer_name, :profile_image, :introduction)
   end
 
 

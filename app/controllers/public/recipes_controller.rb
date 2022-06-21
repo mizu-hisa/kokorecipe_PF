@@ -8,7 +8,8 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.customer = current_customer
     @recipe.save
-    redirect_to customer_path(@recipe.id)
+    redirect_to customers_my_page_path
+    
   end
 
   def edit
@@ -29,13 +30,13 @@ class Public::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
-    redirect_to recipe_path(@recipe.id)
+    redirect_to customers_my_page_path
   end
 
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to root_path
+    redirect_to customers_my_page_path
   end
 
 

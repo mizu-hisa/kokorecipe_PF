@@ -28,7 +28,9 @@
   - 自分で考えた料理を発信したい時
 
   ## 設計書
-  - WBS: https://docs.google.com/spreadsheets/d/1vCn2HA5DOiIFYKa_7BD1OTUMTOmtWWoXIymfQ7nTf94/edit#gid=1066245728
+  - WBS： https://docs.google.com/spreadsheets/d/1vCn2HA5DOiIFYKa_7BD1OTUMTOmtWWoXIymfQ7nTf94/edit#gid=1066245728
+  - テーブル定義書：https://docs.google.com/spreadsheets/d/1l_44xhD1ycuPOx23qyQqjuam44hgp5qa2scVkm3Awuc/edit#gid=0
+  - 詳細設計書：https://docs.google.com/spreadsheets/d/1t1Q-A2YRtfi1VFt4wSxUDEoCvdcq_GbLouWAdo0LLO8/edit#gid=0
 
   ## 開発環境
   - OS：Linux(CentOS)
@@ -38,4 +40,4 @@
   - IDE：Cloud9
 
   ## 使用素材
-  - 使用検討中です。
+  - ロゴ作成https://logo-maker.stores.jp/

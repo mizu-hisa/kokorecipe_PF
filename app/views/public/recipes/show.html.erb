@@ -1,36 +1,26 @@
 <div class="container">
-      <div class="row mt-5">
-        <div class="col">
-          <%= image_tag @recipe.get_image(300,200) %>
-          <p class="mt-5">自己紹介</p>
-          <p class="mt-3"><%= @recipe.customer.introduction %></p>
-        </div>
-          <div class="col mt-5 text-left">
-            <p>タイトル：<%= @recipe.title %></p>
-            <p>レシピ詳細：<%= @recipe.detail %></p>
-              <div class="row mt-5">
-              <div class="col text-right">
-                <p><%= image_tag @recipe.customer.get_profile_image(50,50) %>
-              </div>
-              <div class="col text-left">
-                <p>Name：<%= @recipe.customer.customer_name %></p>
-                <p>投稿日：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
-              </div>
-            </div>
-          </div>
-
-            <div class="row text-center">
-              <div class="col mt-5">
-                <%= render 'comment', recipe: @recipe, recipe_comment: @recipe_comment, customer: @customer %>
-              </div>
-              <div class="col mt-5"><br>
-                <div id="favorite_buttons_<%=@recipe.id%>">
-                  <%= render 'iine', recipe: @recipe %>
-                </div>
-              </div>
-              <div class="col mt-5"><br>
-                <%= render "follow", customer: @customer %>
-              </div>
-            </div>
+  <div class="row offset-2 mt-5">
+    <div class="col">
+      <%= image_tag @recipe.get_image(300,200) %>
+      <div class="mt-3"><%= render 'comment', recipe: @recipe, recipe_comment: @recipe_comment, customer: @customer %></div>
+    </div>
+    <div class="col mt-5">
+      <p>タイトル：<%= @recipe.title %></p>
+      <p>レシピ詳細：<%= @recipe.detail %></p>
+      <p>投稿日：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
+      <div id="favorite_buttons_<%=@recipe.id%>">
+        <%= render 'iine', recipe: @recipe %>
       </div>
+    </div>
+    <div class="col mt-5">
+      <p><%= image_tag @recipe.customer.get_profile_image(50,50) %>
+      <p>Name：<%= @recipe.customer.customer_name %></p>
+      <p class="mt-5">自己紹介</p>
+      <p class="mt-3"><%= @recipe.customer.introduction %></p>
+      <div><br>
+        <%= render "follow", customer: @customer %>
+    　</div>
+    </div>
+  </div>
+
 </div>

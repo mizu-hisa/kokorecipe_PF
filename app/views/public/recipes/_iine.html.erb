@@ -3,12 +3,12 @@
     <% if current_customer.email != 'guest@example.com' && current_customer != recipe.customer %>
       <p>
         <% if recipe.favorited_by?(current_customer) %>
-          <%= link_to recipe_favorites_path(recipe), method: :delete, remote: true do %>
+          <%= link_to recipe_favorites_path(recipe), method: :delete, remote: true, data: {"turbolinks" => false} do %>
             ♥<%= recipe.favorites.count %>
             <p>いいね</p>
           <% end %>
         <% else %>
-          <%= link_to recipe_favorites_path(recipe), method: :post, remote: true do %>
+          <%= link_to recipe_favorites_path(recipe), method: :post, remote: true, data: {"turbolinks" => false} do %>
             ♡<%= recipe.favorites.count %>
             <p>いいね</p>
           <% end %>

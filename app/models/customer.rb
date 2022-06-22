@@ -24,7 +24,7 @@ class Customer < ApplicationRecord
       customer.customer_name = 'guestuser'
     end
   end
-  
+
 # 検索方法分岐
   def self.looks(search, word)
     if search == "perfect_match"
@@ -42,7 +42,7 @@ class Customer < ApplicationRecord
 
   # フォローしたときの処理
   def follow(customer_id)
-    relationships.create(followed_id: customer_id, follower_id: id)
+    relationships.create(followed_id: customer_id)
   end
   # フォローを外すときの処理
   def unfollow(customer_id)

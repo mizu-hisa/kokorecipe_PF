@@ -15,7 +15,7 @@
             <%= link_to customers_my_page_path, class: 'nav-link text-secondary text-center' do %>
               <i class="fas fa-user"></i>My_page
           </div>
-        <% end %>
+            <% end %>
 
           <div class="col">
             <%= link_to new_recipe_path, class: 'nav-link text-secondary text-center' do %>
@@ -52,9 +52,9 @@
 
             <div class="row">
               <div class="col">
-                  <%= link_to admin_customers_path, class: 'nav-link text-secondary text-center' do %>
-                    <i class="fas fa-home"></i><br>Top
-                  <% end %>
+                <%= link_to admin_customers_path, class: 'nav-link text-secondary text-center' do %>
+                  <i class="fas fa-home"></i><br>Top
+                <% end %>
               </div>
               <div class="col">
                 <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary text-center' do %>

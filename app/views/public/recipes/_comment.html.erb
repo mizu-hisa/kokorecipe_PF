@@ -2,7 +2,7 @@
   <div class="col">
       <% if current_customer.email != 'guest@example.com' %>
         <% if current_customer != customer%>
-          <%= form_with( model: [recipe, recipe_comment], url: recipe_comments_path(recipe_id: recipe.id), method: :post) do |f| %>
+          <%= form_with( model: [recipe, recipe_comment], url: recipe_comments_path(recipe_id: recipe.id), method: :post, data: {"turbolinks" => false}) do |f| %>
           <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %><br>
             <%= f.submit "送信する" %>
           <% end %>
@@ -16,7 +16,7 @@
         <%= recipe_comment.created_at.strftime('%Y/%m/%d') %><br>
         <%= recipe_comment.comment %><br>
         <% if recipe_comment.customer == current_customer %>
-          <%= link_to "削除", recipe_comment_path(recipe_comment.id, recipe_id: recipe_comment.recipe), method: :delete %><br>
+          <%= link_to "削除", recipe_comment_path(recipe_comment.id, recipe_id: recipe_comment.recipe), method: :delete, data: {"turbolinks" => false} %><br>
         <% end %>
     <% end %>
   </div>

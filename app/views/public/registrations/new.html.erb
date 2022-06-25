@@ -1,4 +1,6 @@
-<h2 class="text-center">Sign up</h2>
+<div class="mt-3">
+  <h2 class="text-center">Sign up</h2>
+</div>
 
 <div class="container px-5">
   <div class="row text-center">
@@ -7,17 +9,17 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
-        <div class="field">
+        <div class="field mt-3">
           <%= f.label :customer_name %><br>
           <%= f.text_field :customer_name, :size => "30*30" %>
         </div>
 
-        <div class="field">
+        <div class="field mt-3">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", :size => "30*30" %>
         </div>
 
-        <div class="field">
+        <div class="field mt-3">
           <%= f.label :password %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -25,17 +27,18 @@
           <%= f.password_field :password, autocomplete: "new-password", :size => "30*30" %>
         </div>
 
-        <div class="field">
+        <div class="field mt-3">
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", :size => "30*30" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "Sign up" %>
+        <div class="actions mt-4">
+          <%= f.submit "Sign up", class: 'btn btn-outline-primary' %>
         </div>
       <% end %>
-
-      <%= render "public/shared/links" %>
+      <div class="mt-3 mb-3">
+        <%= render "public/shared/links" %>
+      </div>
     </div>
   </div>
 </div>

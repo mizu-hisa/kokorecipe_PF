@@ -1,6 +1,6 @@
-<h2 class="text-center">Log in</h2>
-
-
+<div class="mt-5">
+  <h2 class="text-center">Log in</h2>
+</div>
 
 <div class="container px-5">
   <div class="row text-center">
@@ -12,12 +12,12 @@
             <%= f.email_field :email, autofocus: true, autocomplete: "email", :size => "30*30" %>
           </div>
 
-          <div class="field">
+          <div class="field mt-3">
           <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "current-password", :size => "30*30" %>
           </div>
 
-          <div class="field">
+          <div class="field mt-3">
             <% if devise_mapping.rememberable? %>
               <div class="field">
                 <%= f.check_box :remember_me %>
@@ -26,20 +26,19 @@
             <% end %>
           </div>
 
-          <div class="field">
+          <div class="field mt-4">
             <div class="actions">
-              <%= f.submit "Log in" %>
+              <%= f.submit "Log in", class: 'btn btn-outline-primary' %>
               <% end %>
-          </div>
-        </div>
-        
-        <div class="row offset-5 mt-3 mb-3">
-          <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post %>
-        </div>
-
-      <%= render "public/shared/links" %>
             </div>
-        </div>
+          </div>
+        
+          <div class="mt-3 mb-3">
+            <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post, class: "btn btn-info" %>
+          </div>
+
+            <button type="button" class="btn btn-link"><%= render "public/shared/links" %></button>
+
     </div>
   </div>
 </div>

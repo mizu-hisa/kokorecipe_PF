@@ -1,21 +1,21 @@
 <h3 class="text-center mt-5">レシピ編集</h3>
-<div class="container center-block pl-5">
-  <div class="row offset-4 text-center">
-      <%= form_with model: @recipe do |f| %>
-        <div class="form-group">
-          <h5 class="mt-3">タイトル</h5>
-          <%= f.text_field :title %>
-        </div>
-        <div class="form-group">
-          <h5 class="mt-3">本文</h5>
-          <%= f.text_area :detail %>
-        </div>
-        <div class="form-group">
-          <h5 class="mt-3">画像</h5>
-          <%= f.file_field :image, accept: "image/*" %>
-        </div><br>
-          
-          <p class="mt-"><%= f.submit '保存', class: "btn btn-primary" %></p>
-        <% end %>
+  <div class="container center-block pl-5">
+    <div class="row offset-4 text-center">
+        <%= form_with model: @recipe do |f| %>
+          <div class="form-group">
+            <h5 class="mt-3">タイトル</h5>
+            <%= f.text_field :title %>
+          </div>
+          <div class="form-group">
+            <h5 class="mt-3">本文</h5>
+            <%= f.text_area :detail %>
+          </div>
+          <div class="form-group">
+            <h5 class="mt-3">画像</h5>
+            <%= f.file_field :image, accept: "image/*" %>
+          </div><br>
+            
+            <p class="mt-"><%= f.submit '保存', class: "btn btn-primary" %></p>
+          <% end %>
+    </div>
   </div>
-</div>

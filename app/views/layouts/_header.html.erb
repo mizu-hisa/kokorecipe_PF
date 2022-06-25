@@ -7,35 +7,21 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <% if customer_signed_in? && current_customer.email != 'guest@example.com' %>
-          <li class="nav-item">
-            <%= link_to root_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-              <i class="fas fa-home fa-2x"></i><br>Top
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to customers_my_page_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-              <i class="fas fa-user fa-2x"></i><br>My　page
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to new_recipe_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-              <i class="fas fa-book fa-2x"></i><br>投稿
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-              <i class="fas fa-user fa-2x"></i><br>Log　Out
-            <% end %>
-          </li>
-            <div class="d-flex justify-content-center">
-              <%= render "public/searches/search" %>
-            </div>
-          <% elsif customer_signed_in? && current_customer.email == 'guest@example.com' %>
+        <ul class="navbar-nav ml-auto">
+          <% if customer_signed_in? && current_customer.email != 'guest@example.com' %>
             <li class="nav-item">
               <%= link_to root_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
                 <i class="fas fa-home fa-2x"></i><br>Top
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to customers_my_page_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                <i class="fas fa-user fa-2x"></i><br>My　page
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_recipe_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                <i class="fas fa-book fa-2x"></i><br>投稿
               <% end %>
             </li>
             <li class="nav-item">
@@ -43,36 +29,49 @@
                 <i class="fas fa-user fa-2x"></i><br>Log　Out
               <% end %>
             </li>
-          <% elsif admin_signed_in? %>
+              <div class="d-flex justify-content-center">
+                <%= render "public/searches/search" %>
+              </div>
+            <% elsif customer_signed_in? && current_customer.email == 'guest@example.com' %>
             <li class="nav-item">
-              <%= link_to admin_customers_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                <i class="fas fa-home fa-2x"></i><br>Top
-              <% end %>
+                <%= link_to root_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                  <i class="fas fa-home fa-2x"></i><br>Top
+                <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                <i class="fas fa-user fa-2x"></i>Log　Out
-              <% end %>
+                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                  <i class="fas fa-user fa-2x"></i><br>Log　Out
+                <% end %>
             </li>
-          <% else %>
+            <% elsif admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                <i class="fas fa-home fa-2x"></i><br>Top
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_customer_registration_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                <i class="fas fa-user-plus fa-2x"></i><br>Sign　up
-              <% end %>
+                <%= link_to admin_customers_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                  <i class="fas fa-home fa-2x"></i><br>Top
+                <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to new_customer_session_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                <i class="fas fa-sign-in-alt fa-2x"></i><br>Log　in
-              <% end %>
+                <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                  <i class="fas fa-user fa-2x"></i>Log　Out
+                <% end %>
             </li>
-
-          <% end %>
-        </ul>
+            <% else %>
+            <li class="nav-item">
+                <%= link_to root_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                  <i class="fas fa-home fa-2x"></i><br>Top
+                <% end %>
+            </li>
+            <li class="nav-item">
+                <%= link_to new_customer_registration_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                  <i class="fas fa-user-plus fa-2x"></i><br>Sign　up
+                <% end %>
+            </li>
+            <li class="nav-item">
+                <%= link_to new_customer_session_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
+                  <i class="fas fa-sign-in-alt fa-2x"></i><br>Log　in
+                <% end %>
+            </li>
+            <% end %>
+          </ul>
       </div>
     </div>
   </nav>

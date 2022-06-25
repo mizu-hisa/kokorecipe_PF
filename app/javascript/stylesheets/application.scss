@@ -2,5 +2,9 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 body {
-  padding-bottom: 56px;
+  padding-bottom: 104px;
+}
+
+.recipe_detail {
+  white-space: pre-wrap;
 }

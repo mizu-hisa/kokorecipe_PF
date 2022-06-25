@@ -8,13 +8,11 @@
           <% end %>
         <% end %>
       <% end %>
-  </div>
-  <div class="col">
     <p class="mt-2">コメント件数：<%= recipe.recipe_comments.count %></p><br>
       <% recipe.recipe_comments.each do |recipe_comment| %>
         <%= recipe_comment.customer.customer_name %><br>
-        <%= recipe_comment.created_at.strftime('%Y/%m/%d') %><br>
         <%= recipe_comment.comment %><br>
+        <%= recipe_comment.created_at.strftime('%Y/%m/%d') %><br>
         <% if recipe_comment.customer == current_customer %>
           <%= link_to "削除", recipe_comment_path(recipe_comment.id, recipe_id: recipe_comment.recipe), method: :delete, data: {"turbolinks" => false} %><br>
         <% end %>

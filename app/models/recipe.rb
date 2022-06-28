@@ -5,6 +5,9 @@ class Recipe < ApplicationRecord
   has_many :recipe_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :detail, presence: true, length: { maximum: 140 }
+  
 # 検索方法分岐
   def self.looks(search, word)
     if search == "perfect_match"

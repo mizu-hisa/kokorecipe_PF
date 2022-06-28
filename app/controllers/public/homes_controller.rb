@@ -1,7 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
-    @recipes = Recipe.all
-    @recipes = Recipe.all.page(params[:page]).per(10)
+    @recipes = Recipe.page(params[:page]).per(10).order("created_at DESC")
     # reset_session
   end
 

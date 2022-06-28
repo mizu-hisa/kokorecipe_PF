@@ -7,8 +7,11 @@ class Public::RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.customer = current_customer
-    @recipe.save
-    redirect_to customers_my_page_path
+    if @recipe.save
+      redirect_to customers_my_page_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -16,7 +19,6 @@ class Public::RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all
     @recipes = Recipe.all.page(params[:page]).per(10)
   end
 

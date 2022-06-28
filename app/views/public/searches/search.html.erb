@@ -1,4 +1,4 @@
-<h2>Results index</h2>
+<h2 class="text-center mt-3">Results index</h2>
 
 <table class="table table-hover table-inverse mt-5 mb-5">
   <!--検索対象モデルがUserの時 -->
@@ -30,9 +30,9 @@
     <tbody class="text-center">
       <% @recipes.each do |recipe| %>
         <tr>
-          <td><%= image_tag recipe.get_image(400,300) %></td>
+          <td><%= image_tag recipe.get_image(200,150) %></td>
           <td><%= recipe.title %></td>
-          <td><%= recipe.detail %></td>
+          <td class="recipe_detail"><%= recipe.detail %></td>
         </tr>
       <% end %>
     </tbody>

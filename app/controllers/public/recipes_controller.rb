@@ -9,7 +9,6 @@ class Public::RecipesController < ApplicationController
     @recipe.customer = current_customer
     @recipe.save
     redirect_to customers_my_page_path
-    
   end
 
   def edit

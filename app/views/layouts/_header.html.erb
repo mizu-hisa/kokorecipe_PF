@@ -16,7 +16,7 @@
             </li>
             <li class="nav-item">
               <%= link_to customers_my_page_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                <i class="fas fa-user fa-2x"></i><br>My　page
+                <i class="fas fa-user fa-2x"></i><br>My page
               <% end %>
             </li>
             <li class="nav-item">
@@ -26,7 +26,7 @@
             </li>
             <li class="nav-item">
               <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                <i class="fas fa-user fa-2x"></i><br>Log　Out
+                <i class="fas fa-user fa-2x"></i><br>Log Out
               <% end %>
             </li>
               <div class="d-flex justify-content-center">
@@ -40,7 +40,7 @@
             </li>
             <li class="nav-item">
                 <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                  <i class="fas fa-user fa-2x"></i><br>Log　Out
+                  <i class="fas fa-user fa-2x"></i><br>Log Out
                 <% end %>
             </li>
             <% elsif admin_signed_in? %>
@@ -51,7 +51,7 @@
             </li>
             <li class="nav-item">
                 <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                  <i class="fas fa-user fa-2x"></i>Log　Out
+                  <i class="fas fa-user fa-2x"></i>Log Out
                 <% end %>
             </li>
             <% else %>
@@ -62,12 +62,12 @@
             </li>
             <li class="nav-item">
                 <%= link_to new_customer_registration_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                  <i class="fas fa-user-plus fa-2x"></i><br>Sign　up
+                  <i class="fas fa-user-plus fa-2x"></i><br>Sign up
                 <% end %>
             </li>
             <li class="nav-item">
                 <%= link_to new_customer_session_path, class: 'nav-link text-secondary text-center nav-link mr-3' do %>
-                  <i class="fas fa-sign-in-alt fa-2x"></i><br>Log　in
+                  <i class="fas fa-sign-in-alt fa-2x"></i><br>Log in
                 <% end %>
             </li>
             <% end %>

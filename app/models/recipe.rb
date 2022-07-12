@@ -4,10 +4,11 @@ class Recipe < ApplicationRecord
   has_one_attached :image
   has_many :recipe_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+
   validates :title, presence: true, length: { maximum: 50 }
   validates :detail, presence: true, length: { maximum: 140 }
-  
+  validates :image, presence: true
+
 # 検索方法分岐
   def self.looks(search, word)
     if search == "perfect_match"
@@ -31,7 +32,7 @@ class Recipe < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
   end

@@ -1,7 +1,7 @@
 <h2 class="text-center mt-3">Results index</h2>
 
 <table class="table table-hover table-inverse mt-5 mb-5">
-  <!--検索対象モデルがUserの時 -->
+  <!--検索対象モデルがCustomerの時 -->
   <% if @range == "Customer" %>
   <thead>
     <tr class="text-center">
@@ -19,7 +19,7 @@
       <% end %>
     </tbody>
   <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <!--検索対象モデルがCustomerではない時(= 検索対象モデルがBookの時) -->
   <thead>
     <tr class="text-center">
       <th width="30%">Image</th>

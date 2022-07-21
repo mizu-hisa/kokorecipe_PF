@@ -23,16 +23,18 @@
   <thead>
     <tr class="text-center">
       <th width="30%">Image</th>
-      <th width="30%">Recipe</th>
-      <th width="40%">Detail</th>
+      <th width="20%">Name</th>
+      <th width="20%">Recipe</th>
+      <th width="30%">Detail</th>
     </tr>
   </thead>
     <tbody class="text-center">
       <% @recipes.each do |recipe| %>
         <tr>
           <td><%= image_tag recipe.get_image(200,150) %></td>
-          <td><%= recipe.title %></td>
-          <td class="recipe_detail"><%= recipe.detail %></td>
+          <td><br><br><%= recipe.customer.customer_name %></td>
+          <td><br><br><%= recipe.title %></td>
+          <td class="recipe_detail"><br><br><%= link_to 'レシピ詳細', recipes_Detail_path %></td>
         </tr>
       <% end %>
     </tbody>

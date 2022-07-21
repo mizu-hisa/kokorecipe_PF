@@ -15,7 +15,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(current_customer.id)
   end
 
   def index
@@ -23,7 +23,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(current_customer.id)
     @recipe_comment = RecipeComment.new
     @customer = @recipe.customer
   end

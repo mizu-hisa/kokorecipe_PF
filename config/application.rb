@@ -7,6 +7,7 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 require 'uglifier'
 
+
 module Kokorecipe
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

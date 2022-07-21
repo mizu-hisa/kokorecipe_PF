@@ -11,7 +11,7 @@
                 <div class="col mt-4">
                   <p class="text-center mt-4 text-secondary"><strong><%= recipe.title %></strong></p>
                   <% if customer_signed_in? %>
-                    <p class="text-center"><%= link_to 'レシピ詳細', recipe_path(recipe.id) %></p>
+                    <p class="text-center"><%= link_to 'レシピ詳細', recipes_Detail_path %></p>
                   <% end %>
                 </div>
                 <div class="col">

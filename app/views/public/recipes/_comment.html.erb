@@ -2,9 +2,9 @@
   <div class="col">
       <% if current_customer.email != 'guest@example.com' %>
         <% if current_customer != customer%>
-          <%= form_with( model: [recipe, recipe_comment], url: recipe_comments_path(recipe_id: recipe.id), method: :post, data: {"turbolinks" => false}) do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %><br>
-            <%= f.submit "送信する" %>
+            <%= form_with( model: [recipe, recipe_comment], url: recipe_comments_path(recipe_id: recipe.id), method: :post, data: {"turbolinks" => false}) do |f| %>
+            <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %><br>
+              <%= f.submit "送信する" %>
           <% end %>
         <% end %>
       <% end %>

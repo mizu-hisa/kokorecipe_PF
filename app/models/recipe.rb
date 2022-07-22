@@ -7,7 +7,6 @@ class Recipe < ApplicationRecord
 
   validates :title, presence: true
   validates :detail, presence: true
-  validates :image, presence: true
 
 # 検索方法分岐
   def self.looks(search, word)

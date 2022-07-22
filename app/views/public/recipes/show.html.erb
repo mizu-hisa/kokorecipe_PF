@@ -7,9 +7,9 @@
       </div>
     </div>
     <div class="col-3 mt-3">
-      <p>タイトル：<br><%= @recipe.title %></p>
-      <p class="recipe_detail">レシピ詳細：<br><%= @recipe.detail %></p>
-      <p>投稿日：<%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
+      <p><span style="color: #550000;">タイトル</span><br><%= @recipe.title %></p>
+      <p class="recipe_detail"><span style="color: #550000;">レシピ詳細</span><br><%= @recipe.detail %></p>
+      <p><span style="color: #550000;">投稿日</span><br><%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
         <div id="favorite_buttons_<%=@recipe.id%>">
           <%= render 'iine', recipe: @recipe %>
         </div>
@@ -20,7 +20,7 @@
       <p><%= render "follow", customer: @customer %></p>
     </div>
     <div class="col mt-2">
-      <p class="mt-5">自己紹介</p>
+      <p class="mt-5"><span style="color: #339900;">自己紹介</span></p>
       <p class="mt-3"><%= @recipe.customer.introduction %></p>
     </div>
   </div>

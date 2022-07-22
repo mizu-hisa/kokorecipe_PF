@@ -6,10 +6,6 @@ Rails.application.routes.draw do
     # get 'customers/show'
     # get 'customers/edit'
   end
-  namespace :public do
-    get 'relationships/followings'
-    get 'relationships/followers'
-  end
 
   # 顧客用
   # devise_for :customers
@@ -26,14 +22,14 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-
   scope module: :public do
     root to: 'homes#top'
     get "search" => "searches#search"
+    get 'relationships/followings'
+    get 'relationships/followers'
     devise_scope :customer do
       post 'customers/guest_sign_in', to: 'sessions#guest_sign_in'
     end
-
 
     resources :recipes, only: [:new, :create, :index, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]

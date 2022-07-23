@@ -1,3 +1,12 @@
+<% if recipe_comment.errors.any? %>
+  <%= recipe_comment.errors.count %>件のエラーが発生しました
+  <ul>
+    <% recipe_comment.errors.full_messages.each do |recipe_comment| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="row">
   <div class="col">
       <% if current_customer.email != 'guest@example.com' %>

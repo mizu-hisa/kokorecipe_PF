@@ -7,7 +7,7 @@ class Public::CommentsController < ApplicationController
     if @comment.save
       redirect_to recipe_path(@recipe.id)
     else
-      render :show
+      redirect_to recipe_path(@recipe.id)
     end
   end
 

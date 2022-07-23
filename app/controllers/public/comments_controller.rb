@@ -1,5 +1,5 @@
 class Public::CommentsController < ApplicationController
-  
+
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @comment = current_customer.recipe_comments.new(recipe_comment_params)
@@ -7,7 +7,9 @@ class Public::CommentsController < ApplicationController
     if @comment.save
       redirect_to recipe_path(@recipe.id)
     else
-      redirect_to recipe_path(@recipe.id)
+      @customer = @recipe.customer
+      @recipe_comment = @comment
+      render 'public/recipes/show'
     end
   end
 

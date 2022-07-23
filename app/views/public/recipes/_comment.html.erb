@@ -1,11 +1,13 @@
-<% if recipe_comment.errors.any? %>
-  <%= recipe_comment.errors.count %>件のエラーが発生しました
-  <ul>
-    <% recipe_comment.errors.full_messages.each do |recipe_comment| %>
-      <li><%= message %></li>
+    <% if recipe_comment.errors.any? %>
+      <div class="alert alert-warning">
+        <%= recipe_comment.errors.count %>件のエラーが発生しました
+        <ul>
+          <% recipe_comment.errors.full_messages.each do |recipe_comment| %>
+            <li><%= recipe_comment %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-  </ul>
-<% end %>
 
 <div class="row">
   <div class="col">

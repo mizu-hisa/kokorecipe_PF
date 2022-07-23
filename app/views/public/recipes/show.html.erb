@@ -3,7 +3,7 @@
     <div class="col-4">
       <%= image_tag @recipe.get_image(250,200) %>
       <div class="mt-3">
-        <%= render 'comment', recipe: @recipe, recipe_comment: @recipe_comment, customer: @customer %>
+        <%= render 'public/recipes/comment', recipe: @recipe, recipe_comment: @recipe_comment, customer: @customer %>
       </div>
     </div>
     <div class="col-3 mt-3">
@@ -11,13 +11,13 @@
       <p class="recipe_detail"><span style="color: #550000;">レシピ詳細</span><br><%= @recipe.detail %></p>
       <p><span style="color: #550000;">投稿日</span><br><%= @recipe.created_at.strftime('%Y/%m/%d') %></p>
         <div id="favorite_buttons_<%=@recipe.id%>">
-          <%= render 'iine', recipe: @recipe %>
+          <%= render 'public/recipes/iine', recipe: @recipe %>
         </div>
     </div>
     <div class="col mt-3">
       <p><%= image_tag @recipe.customer.get_profile_image(70,70) %>
       <p>Name：<%= @recipe.customer.customer_name %></p>
-      <p><%= render "follow", customer: @customer %></p>
+      <p><%= render "public/recipes/follow", customer: @customer %></p>
     </div>
     <div class="col mt-2">
       <p class="mt-5"><span style="color: #339900;">自己紹介</span></p>

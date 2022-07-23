@@ -1,4 +1,5 @@
 class Public::RecipesController < ApplicationController
+  before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
 
   def new
     @recipe = Recipe.new
@@ -15,7 +16,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(recipe_params)
+    @recipe = Recipe.find(params[:id])
   end
 
   def index
@@ -23,7 +24,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(recipe_params)
+    @recipe = Recipe.find(params[:id])
     @recipe_comment = RecipeComment.new
     @customer = @recipe.customer
   end
@@ -47,5 +48,13 @@ class Public::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :detail, :image)
   end
+
+  def ensure_correct_customer
+    @recipe = Recipe.find(params[:id])
+    if current_customer != @recipe.customer
+      redirect_to root_path
+    end
+  end
+
 end
 

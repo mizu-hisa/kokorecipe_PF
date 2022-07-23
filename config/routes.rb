@@ -31,13 +31,11 @@ Rails.application.routes.draw do
       post 'customers/guest_sign_in', to: 'sessions#guest_sign_in'
     end
 
-    resources :recipes, only: [:new, :create, :index, :update, :destroy] do
+    resources :recipes do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
       resources :relationships, only: [:create, :destroy]
     end
-      get 'recipes/Detail/edit' => 'recipes#edit'
-      get 'recipes/Detail' => 'recipes#show'
     # 退会確認画面
     get '/customers/is_deleted' => 'customers#is_deleted'
     # 論理削除用のルーティング
